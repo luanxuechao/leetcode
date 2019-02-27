@@ -6,8 +6,8 @@
  * https://leetcode.com/problems/reverse-integer/description/
  *
  * algorithms
- * Easy (25.08%)
- * Total Accepted:    597.7K
+ * Easy (25.09%)
+ * Total Accepted:    600.7K
  * Total Submissions: 2.4M
  * Testcase Example:  '123'
  *
@@ -46,5 +46,36 @@
  * @return {number}
  */
 var reverse = function(x) {
-    
+    let xStr =x.toString();
+    if(x === 0){
+        return 0;
+    }
+    let isMinus= false;
+    if(xStr.indexOf('-')>-1){
+        isMinus = true;
+        xStr = xStr.substr(1,xStr.length);
+    }
+    let arr = xStr.split('');
+    let result = '';
+    let isFirstZero = false;
+    while(arr.length >0){
+        let item = arr.pop();
+        if(item ==='0' && result.length===0){
+            isFirstZero = true;
+        }else {
+            isFirstZero = false;
+        }
+        if(!isFirstZero){
+            result =result.toString()+item.toString();
+        }
+    };
+    if(isMinus){
+        result = '-'+result;
+    }
+    result = parseInt(result);
+    if(result<-2147483648||result >2147483647){
+        return 0;
+    }
+    return result;
 };
+
