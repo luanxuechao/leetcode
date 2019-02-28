@@ -1,4 +1,4 @@
-/*
+ /*
  * @lc app=leetcode id=20 lang=javascript
  *
  * [20] Valid Parentheses
