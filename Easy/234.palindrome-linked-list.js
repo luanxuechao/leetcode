@@ -18,6 +18,7 @@ var isPalindrome = function (head) {
     if (!head) return true
 
     let pointer = head
+    //反转链表
     while (head.next && head.next.next) {
         pointer.next.prev = pointer
         pointer = pointer.next
